@@ -1,0 +1,96 @@
+.step-app{
+  width: 800px;
+  margin: auto;
+}
+.step-app > .step-steps {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+}
+.step-app > .step-steps > li {
+  list-style-type: none;
+  position: relative;
+  color: #2a2a2a;
+  padding: 0px 20px;
+  font-size: 12px;
+  flex: 1;
+  text-align: center;
+}
+.step-app > .step-steps > li::before {
+  content: "";
+  width: 35px;
+  height: 35px;
+  line-height: 45px;
+  display: block;
+  font-size: 20px;
+  color: #ffffff;
+  background: #c2c2c2;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+  padding: 2px;
+}
+.step-app > .step-steps > li::after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: #c2c2c2;
+  position: absolute;
+  left: 0;
+  top: 21px;
+  z-index: -1;
+}
+.step-app > .step-steps > li.active::before {
+  background: #ffc900;
+}
+.step-app > .step-steps > li.active::after {
+  background: #ffc900;
+}
+.step-app > .step-steps > li.done::before {
+  background: #2ecc71;
+}
+.step-app > .step-steps > li.done::after {
+  background: #2ecc71;
+}
+.step-app > .step-steps > li:last-child a {
+  border: none;
+}
+.step-app > .step-steps > li.error {
+  background-color: #e7505a;
+  color: #fff;
+}
+.step-app > .step-steps > li > .number {
+  background: #fff;
+  padding: 0 8px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 15px;
+  border-radius: 3px;
+  color: #333;
+}
+.step-app > .step-content {
+  margin-top: 40px
+}
+.step-app > .step-content > .step-tab-panel {
+  display: none;
+}
+.step-app > .step-content > .step-tab-panel.active {
+  display: block;
+}
+.step-app > .step-footer {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.step-app > .step-footer > .step-btn {
+  padding: 4px 16px;
+  color: #333;
+  text-decoration: none;
+  background: #e5e5e5;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+/*# sourceMappingURL=jquery-steps.css.map */

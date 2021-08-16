@@ -1,0 +1,882 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+<style>
+  body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f5f5;
+  color: var(--grey);
+  font-size: 14px;
+}
+.mt-4{
+    margin-top: 1.75rem;
+}
+.mb-4{
+    margin-bottom: 1.75rem;
+}
+.mb-3{
+    margin-bottom: 1.5rem;
+}
+.mb-2{
+    margin-bottom: 1rem;
+}
+.my-4{
+    margin-top: 1.75rem;
+    margin-bottom: 1.75rem;
+}
+.text-center{
+    text-align: center;
+}
+.text-right{
+  text-align: right;
+}
+.img-fluid{
+    max-width: 100%;
+}
+.container{
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.main-heading{
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--black);
+    padding-bottom: 15px;
+}
+.border-main-heading{
+    border-bottom: 1px solid #ebebeb;
+    margin-bottom: 15px;
+}
+.para-heading{
+    font-size: 16px;
+    color: #2a2a2a;
+}
+header{
+    background: #ffc900;
+}
+
+
+/*CLAIMS*/
+.select-claims-section{
+  display: flex;
+}
+.select-claim-hd{
+  font-size: 20px;
+}
+.claims-section{
+  width: calc(100% - 375px);
+}
+.selected-claims{
+  width: 350px;
+  background: #fff;
+  padding: 15px;
+}
+.selected-claims-heading{
+  font-size: 18px;
+  color: #2a2a2a;
+}
+.number-list-style{
+  padding-left: 20px;
+  margin-top: 10px;
+}
+.number-list-style li{
+  list-style-type: decimal;
+  margin: 10px 0px;
+  color: #7f7f7f;
+}
+.claims-section{
+  display: flex;
+  flex-wrap: wrap;
+}
+.claim-item{
+  position: relative;
+  margin: 0px 5px 5px 0px ;
+  width: 15.5%;
+  height: 100px;
+  display: flex;
+}
+.claim-item-controls{
+  background: #ebebeb;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px;
+  text-align: center;
+  color: #2a2a2a;
+  font-size: 16px;
+  flex-direction: column;
+  transition: all ease .2s;
+}
+.claim-text{
+  font-size: 14px;
+}
+.claim-circle{
+  background: #c2c2c2;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.whiteBtn{
+    background: #fff;
+    border: 1px solid #dfdfdf;
+    border-radius: 6px;
+    color: #b4b4b4;
+    text-transform: uppercase;
+    height: 50px;
+    padding: 0px 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+.whiteBtn:hover{
+    text-decoration: none;
+}
+.whiteBtn img {
+    display: inline-block;
+    margin-left: 10px;
+}
+.backBtn{
+  margin-right: 15px;
+}
+.claim-item-checkbox{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+.claim-item input:checked ~ .claim-item-controls .claim-check-arrow{
+  background: url("img/checked.png") no-repeat;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 9;
+}
+.claim-item input:checked ~ .claim-item-controls{
+  background: #ffc900;
+  transform: scale(.9);
+  transition: all ease .2s;
+}
+.claim-item:hover .claim-item-controls{
+  background: #757575;
+  transform: scale(1.05);
+  transition: all ease .2s;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+.claim-item input:checked:hover ~ .claim-item-controls{
+  color: #2a2a2a;
+}
+.claim-item input:checked ~ .claim-item-controls .claim-circle{
+  background: #757575;
+}
+
+/*Tabs*/
+.panel {
+    display: none;
+} 
+.panel:first-child {
+  display: block;
+}
+.tabs-link{
+  margin: 0px;
+  padding: 0px;
+  display: block;
+  border-bottom: 1px solid #ebebeb;
+}
+.tabs-link li{
+  list-style-type: none;
+  display: inline-block;
+}
+.tabs-link li a{
+  display: inline-block;
+  color: #b1b1b1;
+  text-transform: uppercase;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 1px 20px 10px 0px;
+  margin-right: 20px;
+  border-bottom: 5px solid transparent;
+  font-weight: 600;
+}
+.tabs-link li.active a{
+  color: #2a2a2a;
+  border-bottom: 5px solid #ffc900;
+}
+.tab-content{
+  padding: 20px 0px;
+  margin: 0;
+}
+/*Tabs*/
+
+
+/*Multiple Claims*/
+.input-style{
+  border-radius: 4px;
+  border: 1px solid #dfdfdf;
+  background: #fff;
+  height: 40px;
+  width: 100%;
+  padding: 0px 10px;
+}
+.username-sec{
+  display: flex;
+  align-items: flex-start;
+}
+.username-sec .username-input{
+  width: calc(100% - 300px);
+}
+.username-controls{
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 50px;
+  margin-top: 7px;
+}
+.form-label{
+  margin-bottom: 10px;
+  display: block;
+}
+.transBg-btn{
+  color: #b5b5b5;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.transBg-btn img{
+  margin-left: 10px;
+}
+.error-msg{
+  color: #bababa;
+  font-style: italic;
+  font-size: 12px;
+  display: block;
+  margin-top: 5px;
+}
+.userinfo-row{
+  display: flex;
+  margin: 0px -15px;
+}
+.col-50{
+  width: 50%;
+  padding: 0px 15px;
+  display: flex;
+}
+.userinfo-text-label{
+  color: #757575;
+  width: 200px;
+}
+/*Multiple Claims*/
+
+/*Accordion*/
+.accordion-container{
+  position: relative;
+  border-radius: 4px;
+  border: 1px solid #dfdfdf;
+  background: #fff;
+  margin-bottom: 40px;
+}
+.set{
+  position: relative;
+  width: 100%;
+}
+.set > a{
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: #2a2a2a;
+  font-size: 18px;
+  padding: 15px;
+  -webkit-transition:all 0.2s linear;
+  -moz-transition:all 0.2s linear;
+  transition:all 0.2s linear;
+  cursor: pointer;
+}
+.set > a > i{
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+.acc-content{
+  background-color: #fff;
+  padding: 0px 15px 10px 15px ;
+  display:none;
+}
+/*Accordion*/
+
+/*Tooltip*/
+.claim-item .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #fff;
+  color: #2a2a2a;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  font-size: 12px;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 9;
+  bottom: 60%;
+  left: 50%;
+  margin-left: -65px;
+}
+
+.claim-item:hover .tooltiptext {
+  visibility: visible;
+}
+.claim-item .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+}
+/*Tooltip*/
+
+
+
+footer{
+    background: #7f7f7f;
+    height: 80px;
+}
+    </style>
+
+    <title>LMT</title>
+  </head>
+  <body>
+
+    <!-- HEADER -->
+    <header>
+      <div class="container">
+        <a href="#!"><img src="img/logo.svg" width="200" /></a>
+      </div>
+    </header>
+    <!-- HEADER -->
+
+
+    
+    <!-- CLAIMS PAGE -->
+
+    <div class="container">
+        <div class="main-heading mt-4">Multiple Claims</div>
+
+
+
+      <!-- tabs secction -->
+
+        <div class="ar-tabs nav-tabs-style">
+          <ul class="nav nav-tabs tabs-link">
+            <li class="nav-item active">
+              <a href="#!" class="nav-link">User</a>
+            </li>
+            <li class="nav-item">
+              <a href="#!" class="nav-link">Alternative Approver</a>
+            </li>
+          </ul>
+          <!-- content area  -->
+          <ul class="ar-tabs-content tab-content">
+            <li class="panel">
+              <lable class="form-label">User Name:</lable>
+              <div class="username-sec">
+                <div class="username-input">
+                  <input type="text" class="input-style" placeholder="Username" />
+                  <span class="error-msg">User Last Name, First Name</span>
+                </div>
+                <div class="username-controls">
+                  <a href="#!">
+                    <img src="img/verified-user.png" />
+                  </a>
+                  <a href="#!">
+                    <img src="img/open-book.png" />
+                  </a>
+                  <a href="#!" class="transBg-btn">Get User Info <img src="img/right-arrow.png" /></a>
+                </div>
+              </div>
+            </li>
+            <li class="panel">Alternative Approver</li>
+          </ul>
+        </div>
+
+      <!-- tabs secction -->
+
+
+
+
+        <!-- User Information -->
+        <div class="accordion-container">
+          <div class="set">
+            <a>
+              User Information: 
+              <i class="fas fa-chevron-down"></i>
+            </a>
+            <div class="acc-content">
+              <div class="userinfo-row">
+                <div class="col-50 mb-2">
+                  <div class="userinfo-text-label">Employee Pin</div>
+                  <div class="userinfo-text-value">N1543434</div>
+                </div>
+                <div class="col-50 mb-2">
+                  <div class="userinfo-text-label">Employee Name</div>
+                  <div class="userinfo-text-value">Paladugu, Karthik</div>
+                </div>
+              </div>
+              <div class="userinfo-row">
+                <div class="col-50 mb-2">
+                  <div class="userinfo-text-label">Office Name/Number</div>
+                  <div class="userinfo-text-value">PORTSMOUTH, NH / 0055</div>
+                </div>
+                <div class="col-50 mb-2">
+                  <div class="userinfo-text-label">Department Name/Number</div>
+                  <div class="userinfo-text-value">GDS - End User Technology / 00321</div>
+                </div>
+              </div>
+              <div class="userinfo-row">
+                <div class="col-50 mb-2">
+                  <div class="userinfo-text-label">Employee Email</div>
+                  <div class="userinfo-text-value">Karthiksrinivas.paladugu@libertymutual.com</div>
+                </div>
+                <div class="col-50 mb-2">
+                  <div class="userinfo-text-label">SBU</div>
+                  <div class="userinfo-text-value">Commercial Insurance</div>
+                </div>
+              </div>
+              <div class="userinfo-row">
+                <div class="col-50 mb-2">
+                  <div class="userinfo-text-label">Job Title</div>
+                  <div class="userinfo-text-value">Contractor</div>
+                </div>
+                <div class="col-50 mb-2">
+                  <div class="userinfo-text-label">Job Code</div>
+                  <div class="userinfo-text-value">CCC</div>
+                </div>
+              </div>
+              <div class="userinfo-row">
+                <div class="col-50 mb-2">
+                  <div class="userinfo-text-label">Manager Name</div>
+                  <div class="userinfo-text-value">Jason</div>
+                </div>
+                <div class="col-50 mb-2">
+                  <div class="userinfo-text-label">Manager Pin</div>
+                  <div class="userinfo-text-value">N12541321</div>
+                </div>
+              </div>
+              <div class="userinfo-row">
+                <div class="col-50 mb-2">
+                  <div class="userinfo-text-label">Manager Email</div>
+                  <div class="userinfo-text-value">Jason.kosses@libertymutual.com</div>
+                </div>
+                <div class="col-50 mb-2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- User Information -->
+
+
+
+
+
+
+        <!-- Select the claims listed below -->
+
+        <div class="select-claim-hd mb-3">Select the claims listed below...</div>
+        <div class="select-claims-section">
+          <div class="claims-section">
+            <div class="claim-item">
+              <span class="tooltiptext">BLCC</span>
+              <input type="checkbox" class="claim-item-checkbox" checked="checked" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">BLCC</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">CMS</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">CMS</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">Contact Center</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">Contact Center</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">ExPRS</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">ExPRS</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">FNOL</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">FNOL</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">Right Fax</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">Right Fax</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">OCAS</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">OCAS</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">RCS</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">RCS</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">ACES</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">ACES</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">BOCOMP</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">BOCOMP</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">Helmsman TPA Email Address</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">Helmsman TPA Email Address</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">Via Claim Center</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">Via Claim Center</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">Global Claim Center ID</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">Global Claim Center ID</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">ABI</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">ABI</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">Arbitration Forums</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">Arbitration Forums</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">ARMS</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">ARMS</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">Autoverse</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">Autoverse</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">Claim IQ</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">Claim IQ</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">Compex Legal Services</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">Compex Legal Services</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">COPART</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">COPART</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">Enservio</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">Enservio</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">eSignature / DocuSign</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">eSignature / DocuSign</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">EZMail</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">EZMail</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">Hertz Rent-A-Car</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">Hertz Rent-A-Car</div>
+              </div>
+            </div>
+            <div class="claim-item">
+              <span class="tooltiptext">ALMS Web Access</span>
+              <input type="checkbox" class="claim-item-checkbox" />
+              <div class="claim-item-controls">
+                <span class="claim-check-arrow"></span>
+                <div class="claim-circle"></div>
+                <div class="claim-text">ALMS Web Access</div>
+              </div>
+            </div>
+          </div>
+          <div class="selected-claims">
+            <div class="selected-claims-heading">Selected claims for action</div>
+            <ul class="number-list-style">
+              <li>Claims system ID Request</li>
+              <li>Vendor Applications</li>
+              <li>Property Authority Letter Request Form</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-4 text-right mb-4">
+          <a href="#!" class="whiteBtn">Next <img src="img/right-arrow.png" /></a>
+        </div>
+
+        <!-- Select the claims listed below -->
+
+
+    </div>
+
+
+
+
+    <!-- CLAIMS PAGE -->
+
+
+
+
+
+    <!-- FOOTER -->
+    <footer></footer>
+    <!-- FOOTER -->
+    
+
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+
+  <script>
+    (function() {
+
+    //fade in element function
+    function unfade(element) {
+    var $html = document.getElementsByTagName('html')[0];
+    var op = 0.1;  // initial opacity
+    element.style.display = 'block';
+    var timer = setInterval(function () {
+    if (op >= 1) {
+      clearInterval(timer);
+    }
+    element.style.opacity = op;
+    element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+    op += op * 0.1;
+    }, 10); //set the time here 1=100ms
+    }
+
+    //prevent click events for links
+    var $tab_links = document.getElementsByClassName('nav-link');
+    if ($tab_links[0] !== null && $tab_links[0] !== 'undefined'   && $tab_links[0] !== undefined) {
+    for (var $i = 0; $i < $tab_links.length; $i++) {
+      $tab_links[$i].onclick = function (event) {
+        event.preventDefault();
+        var $tabToggle = event.target.parentElement.parentElement.parentElement;
+        var toggle;
+        return toggle = new Toggle($tabToggle);
+      }
+    }
+    }
+
+    this.Toggle = (function() {
+    Toggle.prototype.el = null;
+
+    Toggle.prototype.tabs = null;
+
+    Toggle.prototype.links = null;
+
+    Toggle.prototype.panels = null;
+
+    function Toggle(toggleClass) {
+      this.el = $(toggleClass);
+      this.tabs = this.el.find(".nav-item");
+      this.panels = this.el.find(".panel");
+      this.bind();
+    }
+
+    Toggle.prototype.show = function(index) {
+      var activePanel, activeTab;
+      this.tabs.removeClass('active');
+      activeTab = this.tabs.get(index);
+      $(activeTab).addClass('active');
+      this.panels.hide();
+      activePanel = this.panels.get(index);
+      // return $(activePanel).show();
+      return unfade(activePanel);
+    };
+
+    Toggle.prototype.bind = function() {
+      var _this = this;
+      return this.tabs.unbind('click').bind('click', function(e) {
+        return _this.show($(e.currentTarget).index());
+      });
+    };
+
+    return Toggle;
+
+    })();
+
+    }).call(this);
+
+  </script>
+
+
+
+<script>
+  $(document).ready(function() {
+  $(".set > a").on("click", function() {
+    if ($(this).hasClass("active")) {
+      $(this).removeClass("active");
+      $(this)
+        .siblings(".acc-content")
+        .slideUp(200);
+      $(".set > a i")
+        .removeClass("fas fa-chevron-up")
+        .addClass("fas fa-chevron-down");
+    } else {
+      $(".set > a i")
+        .removeClass("fas fa-chevron-up")
+        .addClass("fas fa-chevron-down");
+      $(this)
+        .find("i")
+        .removeClass("fas fa-chevron-down")
+        .addClass("fas fa-chevron-up");
+      $(".set > a").removeClass("active");
+      $(this).addClass("active");
+      $(".acc-content").slideUp(200);
+      $(this)
+        .siblings(".acc-content")
+        .slideDown(200);
+    }
+  });
+});
+
+</script>
+
+
+  </body>
+</html>
